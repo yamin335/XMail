@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Allows to override night specific attributes in the (values-night) folder. -->
+    <style name="NightAdjusted.Theme.XMail" parent="android:Theme.Material.Light.NoActionBar" />
 
-    <style name="Theme.XMail" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- The final theme we use -->
+    <style name="Theme.XMail" parent="NightAdjusted.Theme.XMail" />
+
+    <style name="NightAdjusted.Theme.Splash" parent="Theme.SplashScreen">
+        <item name="android:windowLightStatusBar" >true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+    </style>
+
+    <style name="Theme.XMail.Splash" parent="NightAdjusted.Theme.Splash">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:targetApi="31">@color/color_launcher_icon_background</item>
+        <item name="windowSplashScreenBackground">@color/color_splash_background</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.XMail</item>
+        <item name="android:windowSplashScreenBehavior" tools:targetApi="33">icon_preferred</item>
+    </style>
 </resources>
